@@ -1,62 +1,47 @@
+
+
 using System;
 using System.IO;
 
-
-
 class Entry
 {
+    string new_time;
+    string new_response;
+    string new_prompt;
 
-    
+    public Entry CreateEntry()
+    {
+        Entry newEntry = new Entry();
+        // outputFile.WriteLine("What is the date today? ");
+        // string date = Console.ReadLine();
 
-  string date;
-  string title;
-  string response;
+        // outputFile.WriteLine("Title: ");
+        // string title = Console.ReadLine();
+        DateTime time = DateTime.Now;
+        Prompt prompt = new Prompt();
+        string promptText = prompt.RandomPrompt();
+        Console.WriteLine(promptText);
 
-  string fileName ="testFile.txt";
+        Console.Write("Your entry: ");
+        string response = Console.ReadLine();
 
-    public void CreateEntry(){
-        
-        using(StreamWriter outputFile = new StreamWriter(fileName)){
-            
-            
-            // outputFile.WriteLine("What is the date today? ");
-            // string date = Console.ReadLine();
+        // string dateText = theCurrentTime.ToShortDateString();
 
-            // outputFile.WriteLine("Title: ");
-            // string title = Console.ReadLine();
+        newEntry.new_time = time.ToString();
+        newEntry.new_response = response;
+        newEntry.new_prompt = promptText;
+        Console.WriteLine("\nHere's your new journal entry:  \n");
+        string result = newEntry.Display(newEntry);
 
-            Prompt prompt = new Prompt();
-            
-            outputFile.WriteLine(prompt.RandomPrompt());
-           
-            outputFile.Write("Your entry: ");
-            string response = Console.ReadLine();
-            DateTime rightNow = DateTime.Now;
-            string dateText = theCurrentTime.ToShortDateString();
+        return newEntry;
+    }
 
-            Entry newEntry = new Entry();
-            newEntry._entrydateTime = new_time;
-            newEntry._response = new_response;
-            newEntry.prompt = new_prompt;
-            WriteLine("\nHeres your new journal entry:  \n");
-            newEntry.Display();
-
-            return newEntry;
-        }
-        
-      static void Disply(){
-            Console.WriteLine($"Date{new_time}     -Prompt{new_prompt} \n Response: {new_response}");
-
-
-      }
-       
-
-
-
-     }
-    
-    
-    
-
-
+    public string Display(Entry newEntry)
+    {
+        // string new_time = newEntry.new_time;
+        // string new_response;
+        // string new_prompt;
+        string text = $"Date: {new_time} - Prompt: {new_prompt} \n Response: {new_response}";
+        return text;
+    }
 }

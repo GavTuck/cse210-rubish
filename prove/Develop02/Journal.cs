@@ -1,29 +1,30 @@
 class Journal{
 
-// List<string>  = new List<string>()
+List<string>  = new List<string>()
 
 
 
 
-//     public void ReadJournal{
+    public void LoadJournal{
+        
+        
+        string filename = "myFile.txt";
+        string[] lines = System.IO.File.ReadAllLines(filename);
 
-//         string filename = "myFile.txt";
-//         string[] lines = System.IO.File.ReadAllLines(filename);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
 
-//         foreach (string line in lines)
-//         {
-//             string[] parts = line.Split(",");
-
-//             string prompt = parts[0];
-//             string response = parts[1];
-//         }  
-
-
-
+            string prompt = parts[0];
+            string response = parts[1];
+        }  
 
 
-//     } 
-// }
+
+
+
+    } 
+}
 
 
 }
