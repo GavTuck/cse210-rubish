@@ -24,16 +24,21 @@ class Journal{
 
     } 
 
-    public void SaveFile(List<Entry> NewEntries){
+    public void SaveFile(List<Entry> _newEntries){
         Console.WriteLine("Enter a filename: ");
         string filename = Console.ReadLine();
         using(StreamWriter outputFile = new StreamWriter(filename, true)){
-            foreach(Entry NewEntry in NewEntries)
-                outputFile.WriteLine(NewEntry.Display(NewEntry));
+            foreach(Entry _newEntry in _newEntries)
+                outputFile.WriteLine(_newEntry.Display(_newEntry));
         }
-        NewEntries.Clear();
+        _newEntries.Clear();
 
 
+    }
+    public void ClearFile(){
+        Console.WriteLine("Please enter filename ");
+        string filename = Console.ReadLine();
+        File.WriteAllText(filename, string.Empty);
     }
 
     public void DisplayAllEntries(List<Entry> NewEntries){

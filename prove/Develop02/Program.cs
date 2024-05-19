@@ -4,33 +4,36 @@ using System.Numerics;
 
 class Program
 {
-    static public Journal work_plz = new Journal();
+    static public Journal _workPlz = new Journal();
     static void Main(string[] args)
     {
-        List<Entry> NewEntries = new List<Entry>();
+        List<Entry> _newEntries = new List<Entry>();
         string choice = "0";
         Console.WriteLine("Lets gooooooo!!!");
-        while (choice != "5")
+        while (choice != "6")
         {
-            Console.WriteLine("Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5.Quit");
+            Console.WriteLine("Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Clear \n 6. Quit");
             Console.WriteLine("What would you like to do?");
             choice = Console.ReadLine();
 
             if (choice == "1"){
-                Entry NewEntry = new Entry();
-                NewEntry = NewEntry.CreateEntry();
-                NewEntries.Add(NewEntry);
+                Entry _newEntry = new Entry();
+                _newEntry = _newEntry.CreateEntry();
+                _newEntries.Add(_newEntry);
             }
             else if (choice == "2"){
-                work_plz.DisplayAllEntries(NewEntries);
+                _workPlz.DisplayAllEntries(_newEntries);
             }
             else if(choice == "3"){
-                work_plz.LoadJournal();
+                _workPlz.LoadJournal();
             }
             else if(choice == "4"){
-                work_plz.SaveFile(NewEntries);
+                _workPlz.SaveFile(_newEntries);
             }
             else if(choice == "5"){
+                _workPlz.ClearFile();
+            }
+            else if(choice == "6"){
                 Console.WriteLine("Goodbye");
             }
             else{
