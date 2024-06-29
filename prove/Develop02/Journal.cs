@@ -27,7 +27,8 @@ class Journal{
     public void SaveFile(List<Entry> _newEntries){
         Console.WriteLine("Enter a filename: ");
         string filename = Console.ReadLine();
-        using(StreamWriter outputFile = new StreamWriter(filename, true)){
+        using(StreamWriter outputFile = new StreamWriter(filename, true))//True will append the new data
+        {
             foreach(Entry _newEntry in _newEntries)
                 outputFile.WriteLine(_newEntry.Display(_newEntry));
         }
