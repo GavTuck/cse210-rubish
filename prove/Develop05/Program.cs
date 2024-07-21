@@ -73,15 +73,13 @@ class Program
                 
             }
             else if(choice == "3"){
-                 using (StreamWriter outputFile = new StreamWriter("filename.txt"))
+                 using (StreamWriter outputFile = new StreamWriter("test.txt"))
                     {
                         outputFile.WriteLine( $"TotalPoints,{score}");
                         foreach (Goal goal in _newGoals)
                         {
                         goal.Save();
                         outputFile.WriteLine(goal.Save());
-                    // outputFile.WriteLine(newEntry.Save(newEntry));
-                    // Console.WriteLine("nice job");
                         }
                     }
             
@@ -155,7 +153,7 @@ class Program
                 int points = _newGoals[index - 1].RecordEvent();
                 score = score + points;
 
-                // int score = score + _newGoals[index - 1].Goal points;
+               
                 Console.WriteLine($"Your total score is {score}");
 
             }
